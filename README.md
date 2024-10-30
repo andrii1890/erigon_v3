@@ -80,21 +80,23 @@
      cd $HOME && mkdir -p ethereum/eth1/data ethereum/eth1/config ethereum/eth1/logs
      ```
 - **Create service file**
-     ```sudo nano /etc/systemd/system/erigon.service```
+     ```
+     sudo nano /etc/systemd/system/erigon.service
+     ```
      ```
      [Unit]
      Description=Ethereum Node Service
      After=network-online.target
 
      [Service]
-     User=root
-     ExecStart=erigon --config /root/ethereum/eth1/config/config.yaml
+     User=$USER
+     ExecStart=erigon --config /$HOME/ethereum/eth1/config/config.yaml
      Restart=on-failure
      RestartSec=10
      LimitNOFILE=65535
 
-     StandardOutput=append:/root/ethereum/eth1/logs/erigon.log
-     StandardError=append:/root/ethereum/eth1/logs/erigon.log
+     StandardOutput=append:/$HOME/ethereum/eth1/logs/erigon.log
+     StandardError=append:/$HOME/ethereum/eth1/logs/erigon.log
 
     [Install]
     WantedBy=multi-user.target
