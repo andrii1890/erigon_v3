@@ -83,7 +83,7 @@
    nat : "extip:Your Public IP"
    http : "true"
    http.addr : "0.0.0.0"
-   http.port : "8546"
+   http.port : "8545"
    http.vhosts : "*"
    http.api : ["eth","engine","debug","net","trace","web3","erigon","txpool","admin","ots"]
    ws : "true"
@@ -128,3 +128,4 @@
 
   ***HTTP*** request will be available on: ***http://<YOUR_IP>:8545***
   ***WS*** request will be available on: ***ws://<YOUR_IP>:8546***
+  **Beacon Client*** request will be available on: ***http://<YOUR_IP>:5555***
