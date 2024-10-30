@@ -108,6 +108,7 @@
    ```   
      
 - **Install Erigon**
+  
   Scripts will download and build latest version of Erigon
     ```
     wget https://goo.su/M7mbZ -O erigon_install.sh && chmod +x erigon_install.sh && ./erigon_install.sh
@@ -121,11 +122,13 @@
 - **Add alias for erigon logs**
     ```
     echo "#Erigon Logs" >> $HOME/.profile
-    echo 'alias erigon_log="tail -f /root/ethereum/eth1/logs/erigon.log"' >> $HOME/.profile
+    echo 'alias erigon_log="tail -f /$HOME/ethereum/eth1/logs/erigon.log"' >> $HOME/.profile
     source $HOME/.profile
     ```
     now you can simply find logs: erigon_log
 
-  ***HTTP*** request will be available on: ***http://<YOUR_IP>:8545***
-  ***WS*** request will be available on: ***ws://<YOUR_IP>:8546***
-  **Beacon Client*** request will be available on: ***http://<YOUR_IP>:5555***
+***HTTP*** request will be available on: ***http://<YOUR_IP>:8545***
+  
+***WS*** request will be available on: ***ws://<YOUR_IP>:8546***
+  
+**Beacon Client*** request will be available on: ***http://<YOUR_IP>:5555***
