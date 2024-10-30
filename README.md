@@ -112,6 +112,7 @@
    chain : "mainnet"
    identity : "RPC ethereum mainnet"
    db.size.limit : "4TB"
+   #prune.mode : "minimal"
    nat : "extip:Your Public IP"
    #nat : "any"
    http : "true"
