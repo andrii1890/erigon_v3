@@ -88,13 +88,13 @@
 
      [Service]
      User=$USER
-     ExecStart=$(which erigon) --config /$HOME/ethereum/eth1/config/config.yaml
+     ExecStart=$(which erigon) --config $HOME/ethereum/eth1/config/config.yaml
      Restart=on-failure
      RestartSec=10
      LimitNOFILE=65535
 
-     StandardOutput=append:/$HOME/ethereum/eth1/logs/erigon.log
-     StandardError=append:/$HOME/ethereum/eth1/logs/erigon.log
+     StandardOutput=append:$HOME/ethereum/eth1/logs/erigon.log
+     StandardError=append:$HOME/ethereum/eth1/logs/erigon.log
 
     [Install]
     WantedBy=multi-user.target
@@ -104,10 +104,10 @@
     ```
 - **Create config file**
    ```
-   nano /$HOME/ethereum/eth1/config/config.yaml
+   nano $HOME/ethereum/eth1/config/config.yaml
    ```
    ```
-   datadir : '/$HOME/ethereum/eth1/data/'
+   datadir : '$HOME/ethereum/eth1/data/'
    port : "30303"
    chain : "mainnet"
    identity : "RPC ethereum mainnet"
@@ -156,7 +156,7 @@
 - **Add alias for erigon logs**
     ```
     echo "#Erigon Logs" >> $HOME/.profile
-    echo 'alias erigon_log="tail -f /$HOME/ethereum/eth1/logs/erigon.log"' >> $HOME/.profile
+    echo 'alias erigon_log="tail -f $HOME/ethereum/eth1/logs/erigon.log"' >> $HOME/.profile
     source $HOME/.profile
     ```
     now you can simply find logs: erigon_log
