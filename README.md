@@ -10,6 +10,18 @@
      - stay in sync
      - keep the execution of blocks on chain tip
      - serve the Beacon API using a fast and compact data model alongside low CPU and memory usage.
+
+    Caplin's Usage
+    
+       Caplin is be enabled by default. to disable it and enable the Engine API, use the --externalcl flag. from that point on, an external Consensus Layer will not be need anymore.
+
+       Caplin also has an archivial mode for historical states and blocks. it can be enabled through the --caplin.archive flag. In order to enable the caplin's Beacon API, the flag --beacon.api=<namespaces> must be added. e.g: -- 
+       beacon.api=beacon,builder,config,debug,node,validator,lighthouse will enable all endpoints.
+    
+    **NOTE: Caplin is not staking-ready so aggregation endpoints are still to be implemented. Additionally enabling the Beacon API will lead to a 6 GB higher RAM usage.
+
+
+
     
   **Important defaults: Erigon is an Archive Node by default: use --prune.mode if need make it smaller (not allowed to change after first start)!!!**
   - Archive Node is default. 
@@ -26,6 +38,26 @@
 - SSD or NVMe. Do not recommend HDD - on HDD Erigon will always stay N blocks behind chain tip, but not fall behind. Bear in mind that SSD performance deteriorates when close to capacity
 - Golang >= 1.22; GCC 10+ or Clang; On Linux: kernel > v4. 64-bit architecture
 - Internet Connection: A stable, high-speed internet connection and uninterrupted power supply is crucial!
+
+## How much RAM do I need
+- Baseline (ext4 SSD): 16Gb RAM sync takes 6 days, 32Gb - 5 days, 64Gb - 4 days
+- +1 day on "zfs compression=off". +2 days on "zfs compression=on" (2x compression ratio). +3 days on btrfs.
+- -1 day on NVMe
+
+## Default Ports and Firewalls##
+  Erigon ports
+  - engine	9090	TCP	gRPC Server	Private
+  - engine	42069	TCP & UDP	Snap sync (Bittorrent)	Public
+  - engine	8551	TCP	Engine API (JWT auth)	Private
+  - sentry	30303	TCP & UDP	eth/68 peering	Public
+  - sentry	30304	TCP & UDP	eth/67 peering	Public
+  - sentry	9091	TCP	incoming gRPC Connections	Private
+  - rpcdaemon	8545	TCP	HTTP & WebSockets & GraphQL	Private
+    
+ Caplin ports
+  - sentinel	4000	UDP	Peering	Public
+  - sentinel	4001	TCP	Peering	Public
+  - rest	5555	tcp	rest	Public
   
 ## First step
 - **Update packages**
