@@ -66,7 +66,7 @@
     ```
 - **Install dependencies**
      ```
-     sudo apt install curl build-essential git wget jq make gcc nano htop lz4  -y
+     sudo apt install curl build-essential git wget jq make gcc nano htop ncdu lz4  -y
      ```
 - **Install GO**
     ```
