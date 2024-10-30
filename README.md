@@ -81,16 +81,14 @@
      ```
 - **Create service file**
      ```
-     sudo nano /etc/systemd/system/erigon.service
-     ```
-     ```
+     sudo tee /etc/systemd/system/erigon.service > /dev/null << EOF
      [Unit]
      Description=Ethereum Node Service
      After=network-online.target
 
      [Service]
      User=$USER
-     ExecStart=erigon --config /$HOME/ethereum/eth1/config/config.yaml
+     ExecStart=$(which erigon) --config /$HOME/ethereum/eth1/config/config.yaml
      Restart=on-failure
      RestartSec=10
      LimitNOFILE=65535
@@ -100,8 +98,8 @@
 
     [Install]
     WantedBy=multi-user.target
-    ```
-    ```
+    EOF
+    sudo systemctl daemon-reload
     sudo systemctl enable erigon.service
     ```
 - **Create config file**
