@@ -1,2 +1,2 @@
 # erigon
-eriogn archive node
+erigon archive node
