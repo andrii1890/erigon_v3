@@ -81,6 +81,7 @@
    identity : "RPC ethereum mainnet"
    db.size.limit : "4TB"
    nat : "extip:Your Public IP"
+   #nat : "any"
    http : "true"
    http.addr : "0.0.0.0"
    http.port : "8545"
@@ -102,6 +103,7 @@
    beacon.api : ["beacon","builder","config","debug","node","lighthouse"]
    private.api.addr : "localhost:9090"
    internalcl : "true"
+   netrestrict : ["10.0.0.0/8","172.16.0.0/12","100.64.0.0/10","198.18.0.0/15","169.254.0.0/16","172.16.0.0/12","192.0.2.0/24","192.88.99.0/24","192.168.0.0/16","198.18.0.0/15","198.51.100.0/24","203.0.113.0/24","224.0.0.0/4","240.0.0.0/4","192.0.0.0/24","0.0.0.0/8"]
    #txpool.globalbasefeeslots : "100000"
    #txpool.globalqueue : "100000"
    #txpool.globalslots : "30000"
